@@ -57,6 +57,8 @@ covariance_matrix <- function(dist1, dist2, param_cor = -0.75){
 #' @param param_cor Correlation of the covariates contributing to the joint
 #' probability distribution.
 #'
+#' @importFrom MASS mvrnorm
+#'
 #' @details This function is currently specific to the joint PDF of \code{\link{ECS}} and
 #' \code{\link{DIFFUSIVTIY}} and therefore uses a default parameter correlation
 #' specific to these parameters. The user can also define their own parameter
@@ -79,10 +81,10 @@ joint_pdf_sample <- function(draws, dist1, dist2, param_cor = -0.75){
 
   # sampling param values from joint pdf
   ## May want to separate this out? talk with Ben about options
-  joint_values <- MASS::mvrnorm(draws * 2,
-                                c(mean(dist1),
-                                  mean(dist2)),
-                                sigma)
+  joint_values <- mvrnorm(draws * 2,
+                          c(mean(dist1),
+                            mean(dist2)),
+                          sigma)
 
   ## give column names to values sample from joint pdf
   joint_values <- data.frame(ECS = joint_values [, 1],
