@@ -223,7 +223,7 @@ The Hector model runs fairly quickly, even when incorporating parameter uncertai
 
 The overall procedure for this example is the same as presented in the previous sections. The results presented below show each of four SSP scenarios (SSP1-2.6, SSP2-4.5, SSP3-7.0, and SSP5-8.5) as they are run through Hector with 50 parameter iterations. The Hector model realizations were scored using observed CO~2~ concentrations. We plot simulated CO~2~ concentration pathways (top panel) and probabilities of warming (bottom panel) from 1990 until the end of the 21st century.   
 
-```{r fig3, fig.align='center', fig.height=8, fig.width=8, message=FALSE, echo=FALSE}
+```{r fig3, fig.align='center', fig.height=8, fig.width=8, message=FALSE}
 #' Scored Hector runs
 #'
 #' @param inifile a path to ini file of emissions pathway
@@ -300,7 +300,7 @@ plot_co2 <- ggplot(subset(
 plot_co2
 ```
 
-```{r fig4, fig.align='center', fig.height=3, fig.width=8, echo=FALSE}
+```{r fig4, fig.align='center', fig.height=3, fig.width=8}
 #' Calculating probabilities
 #'
 #' @param h_result A hector result
