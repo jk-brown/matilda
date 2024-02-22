@@ -1,6 +1,8 @@
 ---
-title: "matilda-vignette"
-output: 
+title: "Introduction to Matilda"
+author: "Joe Brown"
+date: "`r Sys.Date()`"
+output:
   rmarkdown::html_vignette:
     toc: true
     tocdepth: 2
