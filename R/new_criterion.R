@@ -32,6 +32,7 @@ new_criterion <- function(var, years, obs_values) {
   return(crit)
 }
 
+
 #' Print new criterion
 #'
 #' @description This prints the screening criterion provided as \code{x}.
@@ -48,6 +49,7 @@ print.criterion <- function(x, ...) {
     x$var, min(x$years), " to ", max(x$years), "\n"
   )
 }
+
 
 #' Is an object of type criterion?
 #'
@@ -67,6 +69,7 @@ print.criterion <- function(x, ...) {
 is.criterion <- function(x) {
   isa(x, "criterion")
 }
+
 
 #' Screening criterion using Mauna Loa atmospheric CO2
 #'
@@ -109,4 +112,25 @@ criterion_gmst_obs <- function() {
     years = adjusted_gmst_data$year,
     obs_values = adjusted_gmst_data$anomaly_C
   )
+}
+
+#' Screening criterion using historic CO2 concentrations
+#'
+#' @description This is a criterion identifier for weighting a Matilda ensemble using
+#' historic CO2 concentration. The data used for this criterion are from the Indicators of
+#' Global Climate Change paper (2023).
+#'
+#' @note
+#' For full description, citation, and references see \link{historic_co2_concentrations}
+#'
+#' @seealso \link{historic_co2_concentrations}
+#' @return A criterion identifier using historic co2 concentrations
+#' @export
+#'
+#' @examples
+#' criterion_historic_co2()
+criterion_historic_co2 <- function() {
+  new_criterion(CONCENTRATIONS_CO2(),
+                years = historic_co2_concentrations$year,
+                obs_values = historic_co2_concentrations$value)
 }
