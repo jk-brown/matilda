@@ -71,22 +71,21 @@ is.criterion <- function(x) {
 }
 
 
-#' Screening criterion using Mauna Loa atmospheric CO2
+#' Screening criterion using CO2 concentrations from Mauna Loa Observatory (MLO)
 #'
-#' @description This is a criterion identifier for screening Hector runs using
-#' observed CO2 levels (ppm) from the Mauna Loa data set. The data set provides the
-#' longest running measurements of mean annual atmospheric CO2, collected from the
-#' Mauna Loa Observatory.
+#' @description This is a criterion identifier for screening Matilda ensembles using
+#' observed atmospheric CO2 concentrations (ppm) from the Mauna Loa Observatory (MLO).
+#' The data set provides the longest running observations of mean annual atmospheric CO2 concentrations.
 #'
-#' @return A criterion identifier using Mauna Loa atmospheric CO2
+#' @return A criterion identifier using MLO atmospheric CO2 concentration data.
 #' @note This function uses the Mauna Loa data set from
 #' \href{https://gml.noaa.gov/ccgg/trends/data.html}{https://gml.noaa.gov/ccgg/trends/data.html}
 #' downloaded on 01/03/2023
 #' @export
 #'
 #' @examples
-#' criterion_co2_obs()
-criterion_co2_obs <- function() {
+#' criterion_mlo_co2()
+criterion_mlo_co2 <- function() {
   new_criterion(CONCENTRATIONS_CO2(),
     years = observed_data_co2$year,
     obs_values = observed_data_co2$co2_ppm
